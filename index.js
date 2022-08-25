@@ -1,5 +1,10 @@
 const express = require('express');
 
+const app = express();
+
+app.use(express.json()); // Para recibir los datos de la request y parsea los datos del body a json.
+
+
 
 let notes = [{
         id: 1,
@@ -21,7 +26,6 @@ let notes = [{
     }
 ];
 
-const app = express();
 
 
 app.get('/', (req, res) => {
@@ -48,9 +52,16 @@ app.delete('/api/notes/:id', (request, response) => {
     const id = Number(request.params.id);
     notes = notes.filter(note => note.id !== id);
 
-    console.log(notes);
     response.status(204).end();
 });
+
+app.post('/api/notes', (request, response) => {
+    const note = request.body;
+    console.log(note);
+
+    response.json(note);
+});
+
 
 
 const PORT = 3001;
