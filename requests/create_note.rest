@@ -5,3 +5,17 @@ Content-Type: application/json
     "content": "Esto es una nueva nota!!",
     "important": "true"
 }
+
+###
+
+POST http://localhost:3001/api/notes/
+Content-Type: application/json
+
+{
+    "content": "OTRA NOTA, es una nueva 2 nota SIN importancia!!"
+}
+
+###
+
+POST http://localhost:3001/api/notes/
+Content-Type: application/json

@@ -7,6 +7,12 @@ app.use(express.json()); // Para recibir los datos de la request y parsea los da
 
 
 let notes = [{
+        id: 3,
+        content: "GET and POST are the most important methods of HTTP protocol",
+        date: "2019-05-30T19:20:14.298Z",
+        important: true
+    },
+    {
         id: 1,
         content: "HTML is easy",
         date: "2019-05-30T17:30:31.098Z",
@@ -17,12 +23,6 @@ let notes = [{
         content: "Browser can execute only Javascript",
         date: "2019-05-30T18:39:34.091Z",
         important: false
-    },
-    {
-        id: 3,
-        content: "GET and POST are the most important methods of HTTP protocol",
-        date: "2019-05-30T19:20:14.298Z",
-        important: true
     }
 ];
 
@@ -59,7 +59,25 @@ app.post('/api/notes', (request, response) => {
     const note = request.body;
     console.log(note);
 
-    response.json(note);
+    if (!note || !note.content) {
+        return response.status(400).json({
+            error: "note.content is missing"
+        });
+    }
+
+    const ids = notes.map(note => note.id);
+    const maxId = Math.max(...ids);
+
+    const newNote = {
+        id: maxId + 1,
+        content: note.content,
+        date: new Date().toISOString(),
+        important: typeof note.important !== 'undefined' ? note.important : false
+    }
+
+    notes = [...notes, newNote];
+
+    response.json(newNote);
 });
 
 
