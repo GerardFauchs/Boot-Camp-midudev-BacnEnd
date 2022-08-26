@@ -4,3 +4,5 @@ la guia de configuracion ejecutar el siguiente comando en Windows:
 npm init @eslint/config
 esto nos va preguntando para ir configurando ESLINT, finalmente crea
 el archivo .eslinttrc.js con la configuración que hemos seleccionado.
+Instalar la extension de VSC: Error Lens, para ver el error en la misma
+linea.
