@@ -10,3 +10,7 @@ https://fullstackopen.com/es/part3/node_js_y_express
 https://lenguajejs.com/javascript/calidad-de-codigo/eslint/
 
 https://dev.to/mrluisfer/configurar-eslint-prettier-junto-con-vscode-3h00
+
+
+* Repositorio del curso de midudev, fronend Notes para atacar esta API (falta configurar para nuestro API):
+https://github.com/midudev/notes-app-full-stack-bootcamp
