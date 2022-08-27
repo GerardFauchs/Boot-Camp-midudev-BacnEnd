@@ -1,11 +1,13 @@
 const express = require('express')
+const cors = require('cors')
+
 const app = express()
 const logger = require('./loggerMiddleware')
 
 // Middlewares, declarados con la funcion use().
 // Es una funcion que intercepta la peticion que esta pasando por tu API.
+app.use(cors()) // Por defecto, habilitamos cualquier origen (dominio) a consultar nuestra API
 app.use(express.json()) // Para recibir los datos de la request y parsea los datos del body a tipo json.
-
 app.use(logger)
 
 let notes = [{
