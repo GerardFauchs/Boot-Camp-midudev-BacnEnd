@@ -1,8 +1,12 @@
 const express = require('express')
-
 const app = express()
+const logger = require('./loggerMiddleware')
 
-app.use(express.json()) // Para recibir los datos de la request y parsea los datos del body a json.
+// Middlewares, declarados con la funcion use().
+// Es una funcion que intercepta la peticion que esta pasando por tu API.
+app.use(express.json()) // Para recibir los datos de la request y parsea los datos del body a tipo json.
+
+app.use(logger)
 
 let notes = [{
   id: 3,
@@ -73,6 +77,12 @@ app.post('/api/notes', (request, response) => {
   notes = [...notes, newNote]
 
   response.json(newNote)
+})
+
+app.use((request, response) => {
+  response.status(404).json({
+    error: 'Not found!'
+  })
 })
 
 const PORT = 3001
