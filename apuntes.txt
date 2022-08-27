@@ -8,3 +8,15 @@ Instalar la extension de VSC de: ES LINT.
 Instalar la extension de VSC: Error Lens, para ver el error en la misma
 linea al lado del codigo.
 
+Configurar ESLINT para que corrija automaticamente los errores en guardar
+el archivo:
+ir a la carpeta oculta .vscode -> settings.json i agregar:
+"editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+
+
+Configuración ESLINT:
+https://lenguajejs.com/javascript/calidad-de-codigo/eslint/
+
+https://dev.to/mrluisfer/configurar-eslint-prettier-junto-con-vscode-3h00
