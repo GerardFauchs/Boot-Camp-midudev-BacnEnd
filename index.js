@@ -3,8 +3,6 @@ const cors = require('cors')
 
 const app = express()
 
-const mongoose = require('mongoose')
-
 // Middlewares, declarados con la funcion use().
 // Es una funcion que intercepta la peticion que esta pasando por tu API.
 app.use(cors()) // Por defecto, habilitamos cualquier origen (dominio) a consultar nuestra API
